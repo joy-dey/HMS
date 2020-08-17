@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Hostel Management System</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600"
+    />
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body onload="checkLoggIn('admin');stuManage()">
+    <nav class="navbar navbar-dark navbar-expand-md bg-info">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="admin.html">hostel management</a
+        ><button
+          data-toggle="collapse"
+          class="navbar-toggler"
+          data-target="#navcol-1"
+        >
+          <span class="sr-only">Toggle navigation</span
+          ><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link text-uppercase" href="addroom.html"
+                >Add room</a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link text-uppercase" href="roommanage.html"
+                >manage room</a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link text-uppercase" href="managestudent.html"
+                >manage student</a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link text-uppercase btn btn-primary"
+                onclick="logout()"
+              >
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid mt-4" id='mmnnmm'>
+      <div class="table-responsive table-bordered shadow">
+        <table class="table table-bordered">
+          <thead class="text-white bg-info">
+            <tr>
+              <th>id</th>
+              <th>Student Name</th>
+              <th>Student Phone</th>
+              <th>Father's Name</th>
+              <th>Date of Birth</th>
+              <th>Course</th>
+              <th>Year</th>
+              <th>Parent Address</th>
+              <th>Parent Phone</th>
+              <th>Local Gurdian Name</th>
+              <th>Local Gurdian Address</th>
+              <th>Local Gurdian Phone</th>
+              <th>Allocation Room No.</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="tBody">
+            <tr>
+              <td>0</td>
+              <td>John Doe</td>
+              <td>7898457898</td>
+              <td>Mannm Doe</td>
+              <td>22-08-2002</td>
+              <td>DCST</td>
+              <td>1st Year</td>
+              <td>Banamalipur</td>
+              <td>8798451265</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+    <script src="assets/js/Simple-Slider.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Hostel Management System</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600"
+    />
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body onload="cookieMaster()">
+    <nav class="navbar navbar-dark navbar-expand-md bg-info">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">hostel management</a
+        ><button
+          data-toggle="collapse"
+          class="navbar-toggler"
+          data-target="#navcol-1"
+        >
+          <span class="sr-only">Toggle navigation</span
+          ><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link active text-uppercase" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link text-uppercase" href="overview.html"
+                >Overview</a
+              >
+            </li>
+            <li class="nav-item dropdown" role="presentation">
+              <a
+                class="nav-link text-uppercase dropdown-toggle"
+                href="#"
+                role="button"
+                data-toggle="dropdown"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                >Rooms</a
+              >
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Link</a
+                ><a class="dropdown-item" href="#">Link</a>
+              </div>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link text-uppercase" href="about.html">About</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link text-uppercase" href="join.html"
+                >Login/Signup</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="parallax">
+      <div class="overlay"></div>
+      <div class="container welcome-container">
+        <div class="row">
+          <div class="col-md-12">
+            <button
+              class="btn btn-success btn-lg mb-2 mr-2"
+              type="button"
+              data-toggle="modal"
+              data-target="#box"
+            >
+              Admin log-in</button
+            ><button
+              class="btn btn-warning btn-lg mb-2"
+              type="button"
+              data-toggle="modal"
+              data-target="#box-a"
+            >
+              student log-in
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="box">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <i
+              class="fa fa-lock"
+              style="font-size: 25px; margin-right: 5px;"
+            ></i>
+            <h4 class="modal-title">Login</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <input
+              class="form-control mb-2"
+              type="text"
+              placeholder="Enter Username or Email ID"
+              id="txtAdUser"
+              maxlength="50"
+              required
+            />
+            <input
+              class="form-control"
+              type="password"
+              placeholder="Enter Password"
+              data-toggle="password"
+              id="txtAdPass"
+              maxlength="20"
+              required
+            />
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-info" onclick="admin_login()">
+              login&nbsp;<i
+                class="fa fa-long-arrow-right"
+                style="font-size: 15px; margin-left: 5px;"
+              ></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="box-a">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <i
+              class="fa fa-lock"
+              style="font-size: 25px; margin-right: 5px;"
+            ></i>
+            <h4 class="modal-title">Login</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input
+              class="form-control mb-2"
+              id="userMail"
+              type="text"
+              placeholder="Enter Phone Number"
+              oninput="checkNumber(this)"
+              maxlength="10"
+            />
+            <input
+              class="form-control"
+              id="userPass"
+              type="password"
+              placeholder="Enter Password"
+              data-toggle="password"
+              maxlength="20"
+            />
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-info" type="button" onclick="stfu()">
+              login&nbsp;<i
+                class="fa fa-long-arrow-right"
+                style="font-size: 15px; margin-left: 5px;"
+              ></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+    <script src="assets/js/Simple-Slider.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

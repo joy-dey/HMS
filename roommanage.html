@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Hostel Management System</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600"
+    />
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body onload="checkLoggIn('admin'); roomManage()">
+    <nav class="navbar navbar-dark navbar-expand-md bg-info">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="admin.html">hostel management</a
+        ><button
+          data-toggle="collapse"
+          class="navbar-toggler"
+          data-target="#navcol-1"
+        >
+          <span class="sr-only">Toggle navigation</span
+          ><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link text-uppercase" href="addroom.html"
+                >Add room</a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link text-uppercase" href="roommanage.html"
+                >manage room</a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link text-uppercase" href="managestudent.html"
+                >allocate rooms</a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link text-uppercase btn btn-primary"
+                onclick="logout()"
+              >
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-4" id="mainTTBB">
+      <div class="table-responsive table-bordered shadow">
+        <table class="table table-bordered">
+          <thead class="text-white bg-info">
+            <tr>
+              <th>ID</th>
+              <th>Room number</th>
+              <th>
+                fees(₹)
+                <br />
+                <span style="font-size: 0.5rem; opacity: 0.5;">
+                  click to change
+                </span>
+              </th>
+              <th>allocation</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="tBody">
+            <tr>
+              <td>0</td>
+              <td>b001</td>
+              <td>₹1000</td>
+              <td>N/A</td>
+              <td>
+                <button class="btn btn-danger btn-sm" type="button">
+                  remove room &nbsp; x
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+    <script src="assets/js/Simple-Slider.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

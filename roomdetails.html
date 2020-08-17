@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Hostel Management System</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600"
+    />
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body onload="checkLoggIn('stu');stuRoomInit()">
+    <nav class="navbar navbar-dark navbar-expand-md bg-info">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="studentportal.html">dashboard</a
+        ><button
+          data-toggle="collapse"
+          data-target="#navcol-1"
+          class="navbar-toggler"
+        >
+          <span class="sr-only">Toggle navigation</span
+          ><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav ml-auto">
+            <li role="presentation" class="nav-item">
+              <a class="nav-link text-uppercase" href="studentprofile.html"
+                >My Profile</a
+              >
+            </li>
+            <li role="presentation" class="nav-item">
+              <a class="nav-link text-uppercase" href="roomdetails.html"
+                >Room details</a
+              >
+            </li>
+            <li role="presentation" class="nav-item">
+              <a
+                class="nav-link text-uppercase btn btn-primary text-white"
+                style="cursor: pointer;"
+                onclick="logout()"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5 mb-5">
+      <div class="card shadow">
+        <div class="card-body">
+          <h1 class="card-title">room related info</h1>
+          <br />
+          <div id="roomRelated" style="font-size: 1.2rem;">
+            <div class="flexxx">
+              <p style="color: #202020; font-weight: bold;">Room No :</p>
+              <p style="color: #505050; margin-left: 6px;" id="roomNo">
+                103103
+              </p>
+            </div>
+            <div class="flexxx">
+              <p style="color: #202020; font-weight: bold;">Fees :</p>
+              <p style="color: #505050; margin-left: 6px;" id="roomFees">
+                3795
+              </p>
+            </div>
+            <br />
+            <button
+              class="btn btn-danger"
+              data-toggle="modal"
+              data-target="#box1"
+              style="font-size: 1.2rem;"
+            >
+              REQUEST A LEAVE
+            </button>
+            <div class="modal fade" role="dialog" tabindex="-1" id="box1">
+              <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Request for a leave</h4>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" id="modalBody">
+                    <p>Type of Leave :</p>
+                    <select id="txtTOL" class="form-control">
+                      <option value="" disabled selected hidden>
+                        Select type of leave
+                      </option>
+                      <option value="Permanent">Permanent</option>
+                      <option value="Temporary">Temporary</option>
+                    </select>
+                    <br />
+                    <p>Reason for the Leave :</p>
+                    <textarea
+                      id="txtWHY"
+                      maxlength="250"
+                      oninput="checkText(this)"
+                      class="form-control"
+                      style="max-width: 100%; min-height: 200px;"
+                      placeholder="Enter the reason for which you want a leave..."
+                    ></textarea>
+                    <br />
+                    <button
+                      class="btn btn-success"
+                      style="float: right;"
+                      onclick="requestLeave()"
+                    >
+                      Request
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+      <br /><br />
+      <div class="card shadow">
+        <div class="card-body" id="notification">
+          <h4 class="card-title"><i class="fa fa-bell mr-2"></i>Requests</h4>
+          <table class="table table-bordered" id="changeRequest">
+            <thead>
+              <tr class="bg-success text-white">
+                <th>Request Type</th>
+                <th>Request Message</th>
+                <th>Approval</th>
+              </tr>
+            </thead>
+            <tbody id="dyRequest">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+    <script src="assets/js/Simple-Slider.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

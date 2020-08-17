@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Hostel Management System</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600"
+    />
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body onload="checkLoggIn('stu');stuProfile();">
+    <nav class="navbar navbar-dark navbar-expand-md bg-info">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="studentportal.html">dashboard</a
+        ><button
+          data-toggle="collapse"
+          data-target="#navcol-1"
+          class="navbar-toggler"
+        >
+          <span class="sr-only">Toggle navigation</span
+          ><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav ml-auto">
+            <li role="presentation" class="nav-item">
+              <a class="nav-link text-uppercase" href="studentprofile.html"
+                >My Profile</a
+              >
+            </li>
+            <li role="presentation" class="nav-item">
+              <a class="nav-link text-uppercase" href="roomdetails.html"
+                >Room details</a
+              >
+            </li>
+            <li role="presentation" class="nav-item">
+              <a
+                class="nav-link text-uppercase btn btn-primary text-white"
+                style="cursor: pointer;"
+                onclick="logout()"              >
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5 mb-5">
+      <div class="card shadow">
+        <div class="card-body">
+          <h4 class="text-success card-title" id="nameProfile">
+            Sample Name &#39;s profile
+          </h4>
+          <div class="table-responsive">
+            <table class="table table-sm">
+              <tbody>
+                <tr>
+                  <td>Name :</td>
+                  <td>
+                    <input
+                      type="text"
+                      oninput="checkText(this)"
+                      id="txtName"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Father's Name :</td>
+                  <td>
+                    <input
+                      type="text"
+                      oninput="checkText(this)"
+                      id="txtFName"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Date of Birth :</td>
+                  <td>
+                    <input type="date" id="txtDOB" class="form-control" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Course :</td>
+                  <td>
+                    <input
+                      type="text"
+                      oninput="checkText(this)"
+                      id="txtCourse"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Year :</td>
+                  <td>
+                    <select id="txtYear" class="form-control mb-2" required>
+                      <option value="" disabled selected hidden
+                        >Select Year</option
+                      >
+                      <option value="1st Year">1st Year</option>
+                      <option value="2nd Year">2nd Year</option>
+                      <option value="3rd Year">3rd Year</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Parent Address :</td>
+                  <td>
+                    <input
+                      type="text"
+                      id="txtPAddress"
+                      oninput="checkText(this)"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Parent Phone :</td>
+                  <td>
+                    <input
+                      type="text"
+                      oninput="checkNumber(this)"
+                      id="txtPPhone"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Local Guardian Name:</td>
+                  <td>
+                    <input
+                      type="text"
+                      oninput="checkText(this)"
+                      id="txtLGName"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Local Guardian Address :</td>
+                  <td>
+                    <input
+                      type="text"
+                      oninput="checkText(this)"
+                      id="txtLGAddress"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Local Guardian Phone :</td>
+                  <td>
+                    <input
+                      type="text"
+                      oninput="checkNumber(this)"
+                      id="txtLGPhone"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="text-right mt-3">
+            <button
+              class="btn btn-primary"
+              onclick="updateProfile()"
+              type="button"
+            >
+              update profile
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+    <script src="assets/js/Simple-Slider.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
