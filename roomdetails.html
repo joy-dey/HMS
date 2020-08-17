@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <title>Hostel Management System</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600" />
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
     <link rel="stylesheet" href="assets/css/Footer-Dark.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css" />
     <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
-  </head>
+</head>
 
-  <body onload="checkLoggIn('stu');stuRoomInit()">
+<body onload="checkLoggIn('stu');stuRoomInit()">
     <nav class="navbar navbar-dark navbar-expand-md bg-info">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="studentportal.html">dashboard</a
+        <div class="container-fluid">
+            <a class="navbar-brand" href="studentportal.html">dashboard</a
         ><button
           data-toggle="collapse"
           data-target="#navcol-1"
@@ -47,7 +36,7 @@
             </li>
             <li role="presentation" class="nav-item">
               <a class="nav-link text-uppercase" href="roomdetails.html"
-                >Room details</a
+                >Bed details</a
               >
             </li>
             <li role="presentation" class="nav-item">
@@ -66,7 +55,7 @@
     <div class="container mt-5 mb-5">
       <div class="card shadow">
         <div class="card-body">
-          <h1 class="card-title">room related info</h1>
+          <h1 class="card-title">Bed related info</h1>
           <br />
           <div id="roomRelated" style="font-size: 1.2rem;">
             <div class="flexxx">
@@ -80,6 +69,17 @@
               <p style="color: #505050; margin-left: 6px;" id="roomFees">
                 3795
               </p>
+            </div>
+            <!-- billings -->
+            <div class="d-flex">
+              <p class="text-dark font-weight-bold">Water Bill:</p>
+              <p id="waterBill" class="text-dark ml-2">50</p>
+              <span class="status ml-2 text-success small">Paid</span>
+            </div>
+            <div class="d-flex">
+              <p class="text-dark font-weight-bold">Electricity Bill:</p>
+              <p id="waterBill" class="text-dark ml-2">150</p>
+              <span class="status ml-2 text-success small">Paid</span>
             </div>
             <br />
             <button

@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <title>Hostel Management System</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600" />
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
     <link rel="stylesheet" href="assets/css/Footer-Dark.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css" />
     <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <nav class="navbar navbar-dark navbar-expand-md bg-info">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">hostel management</a
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">hostel management</a
         ><button
           data-toggle="collapse"
           class="navbar-toggler"
@@ -50,28 +39,13 @@
                 >Overview</a
               >
             </li>
-            <li class="nav-item dropdown" role="presentation">
-              <a
-                class="nav-link text-uppercase dropdown-toggle"
-                href="#"
-                role="button"
-                data-toggle="dropdown"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-                >Rooms</a
-              >
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Link</a
-                ><a class="dropdown-item" href="#">Link</a>
-              </div>
+            &nbsp;
+              
+        <li class="nav-item" role="presentation">
+            <a class="nav-link text-uppercase" href="about.html">About</a>
             </li>
             <li class="nav-item" role="presentation">
-              <a class="nav-link text-uppercase" href="about.html">About</a>
-            </li>
-            <li class="nav-item" role="presentation">
-              <a class="nav-link text-uppercase" href="join.html"
-                >Login/Signup</a
+                <a class="nav-link text-uppercase" href="join.html">Login/Signup</a
               >
             </li>
           </ul>
@@ -184,160 +158,72 @@
             data-target="#box1"
             >apply for hostel<br
           /></a>
-        </p>
-      </div>
-    </div>
-    <div class="modal fade" role="dialog" tabindex="-1" id="box1">
-      <div class="modal-dialog modal-dialog-scrollable" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">apply for hostel</h4>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
+                </p>
+        </div>
+        </div>
+        <div class="modal fade" role="dialog" tabindex="-1" id="box1">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">apply for hostel</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
-          </div>
-          <div class="modal-body">
-            <div>
-              <input
-                class="form-control mb-2"
-                type="text"
-                placeholder="Enter Name"
-                id="txtName"
-                oninput="checkText(this)"
-                required
-              />
-              <input
-                class="form-control mb-2"
-                type="text"
-                oninput="checkNumber(this)"
-                maxlength="10"
-                placeholder="Enter Phone"
-                id="txtNumber"
-                required
-              />
-              <input
-                class="form-control mb-2"
-                type="password"
-                placeholder="Enter Password"
-                id="txtPassword"
-                maxlength="120"
-                oninput="checkValidation(this)"
-                required
-              />
-              <input
-                class="form-control mb-2"
-                type="text"
-                placeholder="Enter Father's Name"
-                id="txtFname"
-                oninput="checkText(this)"
-                required
-              />
-              <input
-                class="form-control mb-2"
-                type="date"
-                id="txtDate"
-                required
-              />
-              <label for="txtDate" class="dateCC">Enter Date of Birth</label>
-              <input
-                class="form-control mb-2"
-                type="text"
-                placeholder="Enter Course Admitted to"
-                id="txtCourse"
-                oninput="checkText(this)"
-                required
-              />
-              <select id="txtYear" class="form-control mb-2" required>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <input class="form-control mb-2" type="text" placeholder="Enter Name" id="txtName" oninput="checkText(this)" required />
+                            <input class="form-control mb-2" type="text" oninput="checkNumber(this)" maxlength="10" placeholder="Enter Phone" id="txtNumber" required />
+                            <input class="form-control mb-2" type="password" placeholder="Enter Password" id="txtPassword" maxlength="120" oninput="checkValidation(this)" required />
+                            <input class="form-control mb-2" type="text" placeholder="Enter Father's Name" id="txtFname" oninput="checkText(this)" required />
+                            <input class="form-control mb-2" type="date" id="txtDate" required />
+                            <label for="txtDate" class="dateCC">Enter Date of Birth</label>
+                            <input class="form-control mb-2" type="text" placeholder="Enter Course Admitted to" id="txtCourse" oninput="checkText(this)" required />
+                            <select id="txtYear" class="form-control mb-2" required>
                 <option value="" disabled selected hidden>Select Year</option>
                 <option value="1st Year">1st Year</option>
                 <option value="2nd Year">2nd Year</option>
                 <option value="3rd Year">3rd Year</option>
               </select>
-              <input
-                class="form-control mb-2"
-                type="text"
-                placeholder="Enter Address of Parent"
-                id="txtAddress"
-                oninput="checkText(this)"
-                required
-              />
-              <input
-                class="form-control mb-2"
-                type="text"
-                placeholder="Enter Hostelite's Phone Number"
-                id="txtHSPhone"
-                oninput="checkNumber(this)"
-                maxlength="10"
-                required
-              />
-              <input
-                class="form-control mb-2"
-                type="text"
-                placeholder="Enter Local Guardian Name"
-                oninput="checkText(this)"
-                id="txtLGName"
-              /><input
-                class="form-control mb-2"
-                type="text"
-                placeholder="Enter Local Guardian Address"
-                oninput="checkText(this)"
-                id="txtLGAddress"
-              /><input
-                class="form-control mb-2"
-                type="text"
-                placeholder="Enter Local Guardian Phone Number"
-                id="txtLGNumber"
-                oninput="checkNumber(this)"
-                maxlength="10"
-              />
-              <button
-                class="btn btn-info"
-                style="float: right;"
-                id="btnSubmit"
-                onclick="addStudent()"
-                disabled
-              >
+                            <input class="form-control mb-2" type="text" placeholder="Enter Address of Parent" id="txtAddress" oninput="checkText(this)" required />
+                            <input class="form-control mb-2" type="text" placeholder="Enter Hostelite's Phone Number" id="txtHSPhone" oninput="checkNumber(this)" maxlength="10" required />
+                            <input class="form-control mb-2" type="text" placeholder="Enter Local Guardian Name" oninput="checkText(this)" id="txtLGName" /><input class="form-control mb-2" type="text" placeholder="Enter Local Guardian Address" oninput="checkText(this)"
+                                id="txtLGAddress" /><input class="form-control mb-2" type="text" placeholder="Enter Local Guardian Phone Number" id="txtLGNumber" oninput="checkNumber(this)" maxlength="10" />
+                            <button class="btn btn-info" style="float: right;" id="btnSubmit" onclick="addStudent()" disabled>
                 apply
                 <i
                   class="fa fa-long-arrow-right"
                   style="font-size: 15px; margin-left: 5px;"
                 ></i>
               </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <div class="footer-dark">
-      <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 item text text-center">
-              <h3 class="text-white">nielit hostel management</h3>
-              <p>
-                Praesent sed lobortis mi. Suspendisse vel placerat ligula.
-                Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis
-                tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel
-                in justo.
-              </p>
-            </div>
-          </div>
-          <p class="copyright">Hostel Management © 2020</p>
+        <div class="footer-dark">
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 item text text-center">
+                            <h3 class="text-white">nielit hostel management</h3>
+                            <p>
+                                Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.
+                            </p>
+                        </div>
+                    </div>
+                    <p class="copyright">Hostel Management © 2020</p>
+                </div>
+            </footer>
         </div>
-      </footer>
-    </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-    <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
-    <script src="assets/js/Simple-Slider.js"></script>
-    <script src="main.js"></script>
-  </body>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+        <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
+        <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+        <script src="assets/js/Simple-Slider.js"></script>
+        <script src="main.js"></script>
+</body>
+
 </html>
