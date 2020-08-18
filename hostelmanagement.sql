@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2020 at 08:18 PM
+-- Generation Time: Aug 18, 2020 at 06:30 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -21,6 +21,40 @@ SET time_zone = "+00:00";
 --
 -- Database: `hostelmanagement`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `billing`
+--
+
+CREATE TABLE `billing` (
+  `id` int(10) NOT NULL,
+  `el_bill` varchar(50) NOT NULL COMMENT 'ElectricityBill',
+  `wt_bill` varchar(50) NOT NULL COMMENT 'WaterBill'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `billing`
+--
+
+INSERT INTO `billing` (`id`, `el_bill`, `wt_bill`) VALUES
+(1, '150', '75');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bill_rec`
+--
+
+CREATE TABLE `bill_rec` (
+  `id` int(10) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `p_month` int(2) NOT NULL COMMENT 'Paid for Month',
+  `p_year` int(4) NOT NULL COMMENT 'Paid for Year',
+  `paydate` varchar(15) NOT NULL COMMENT 'Payment Made Date'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -110,6 +144,18 @@ CREATE TABLE `student_reg` (
 --
 
 --
+-- Indexes for table `billing`
+--
+ALTER TABLE `billing`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `bill_rec`
+--
+ALTER TABLE `bill_rec`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
@@ -146,10 +192,22 @@ ALTER TABLE `student_reg`
 --
 
 --
+-- AUTO_INCREMENT for table `billing`
+--
+ALTER TABLE `billing`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `bill_rec`
+--
+ALTER TABLE `bill_rec`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT COMMENT 'id_no', AUTO_INCREMENT=12;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT COMMENT 'id_no', AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -167,13 +225,13 @@ ALTER TABLE `rfl`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT COMMENT 'Identification Number', AUTO_INCREMENT=13;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT COMMENT 'Identification Number', AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `student_reg`
 --
 ALTER TABLE `student_reg`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT COMMENT 'id', AUTO_INCREMENT=39;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT COMMENT 'id', AUTO_INCREMENT=40;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

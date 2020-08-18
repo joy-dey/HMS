@@ -70,29 +70,32 @@
           <br />
           <div id="roomRelated" style="font-size: 1.2rem;">
             <div class="flexxx">
-              <p style="color: #202020; font-weight: bold;">Room No :</p>
+              <p style="color: #202020; font-weight: bold;">Bed No :</p>
               <p style="color: #505050; margin-left: 6px;" id="roomNo">
-                103103
+                0
               </p>
             </div>
             <div class="flexxx">
               <p style="color: #202020; font-weight: bold;">Fees :</p>
               <p style="color: #505050; margin-left: 6px;" id="roomFees">
-                3795
+                0
               </p>
             </div>
             <!-- billings -->
             <div class="d-flex">
               <p class="text-dark font-weight-bold">Water Bill:</p>
-              <p id="waterBill" class="text-dark ml-2">50</p>
+              <p id="el_bill" class="text-dark ml-2">0</p>
             </div>
             <div class="d-flex">
               <p class="text-dark font-weight-bold">Electricity Bill:</p>
-              <p id="waterBill" class="text-dark ml-2">150</p>
+              <p id="wt_bill" class="text-dark ml-2">0</p>
             </div>
-            <br />
-            <span class="status ml-2 text-success h5 font-weight-bold">Paid</span>
-            <br />
+            <hr />
+            <p class="status ml-2" style="text-transform: uppercase;">
+              Payment of hostel for <span id="thismonth">this month</span>:
+              <span class="text-success h3 font-weight-bold" id="pntp">_</span>
+            </p>
+            <hr />
             <button
               class="btn btn-danger"
               data-toggle="modal"

@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
     <title>Hostel Management System</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600"
+    />
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
     <link rel="stylesheet" href="assets/css/Footer-Dark.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css"
+    />
     <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
-</head>
+  </head>
 
-<body onload="checkLoggIn('admin')">
+  <body onload="checkLoggIn('admin')">
     <nav class="navbar navbar-dark navbar-expand-md bg-info">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="admin.html">hostel management</a
+      <div class="container-fluid">
+        <a class="navbar-brand" href="admin.html">hostel management</a
         ><button
           data-toggle="collapse"
           class="navbar-toggler"
@@ -30,9 +41,7 @@
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="nav navbar-nav ml-auto">
             <li class="nav-item" role="presentation">
-              <a class="nav-link text-uppercase" href="addroom.html"
-                >Add Bed</a
-              >
+              <a class="nav-link text-uppercase" href="addroom.html">Add Bed</a>
             </li>
             <li class="nav-item" role="presentation">
               <a class="nav-link text-uppercase" href="roommanage.html"
@@ -61,38 +70,52 @@
         </div>
       </div>
     </nav>
-    <div class="container mt-4">
-      <div class="form-group">
-        <label>Phone Number</label>
-        <input
-          class="form-control"
-          type="text"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label>Name</label>
-        <input
-          class="form-control bb"
-          type="text"
-          required
-        />
+    <form class="container mt-4" id="paymentCtrl">
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input
+              class="form-control bb"
+              type="text"
+              placeholder="eg. 9812343234"
+              oninput="checkNumber(this)"
+              onblur="showPayBtn()"
+              maxlength="10"
+              id="txtPhone"
+              required
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label>Name</label>
+            <input
+              class="form-control bb"
+              type="text"
+              oninput="checkText(this)"
+              maxlength="50"
+              id="txtName"
+              disabled
+            />
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="col-6">
           <div class="form-group">
             <label>Month</label>
-           
-            <select name="" id="" class="form-control">
-              <option value="01">January</option>
-              <option value="02">February</option>
-              <option value="03">March</option>
-              <option value="04">April</option>
-              <option value="05">May</option>
-              <option value="06">June</option>
-              <option value="07">July</option>
-              <option value="08">Auguat</option>
-              <option value="09">September</option>
+
+            <select id="txtMonth" class="form-control bb">
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
               <option value="10">October</option>
               <option value="11">November</option>
               <option value="12">December</option>
@@ -105,13 +128,22 @@
             <input
               class="form-control bb"
               type="text"
+              oninput="checkNumber(this)"
+              maxlength="4"
+              id="txtYear"
               required
             />
           </div>
         </div>
-        <button class="btn btn-info">Record Payment</button>
       </div>
-     </div>
+      <br />
+      <button class="btn btn-info" type="submit" id="btnAddRC" disabled>
+        Record Payment
+      </button>
+    </form>
+    <br /><br />
+    <div id="stRC" class="container"></div>
+    <br /><br />
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>

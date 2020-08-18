@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
     <title>Hostel Management System</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600"
+    />
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
     <link rel="stylesheet" href="assets/css/Footer-Dark.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css"
+    />
     <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
-</head>
+  </head>
 
-<body onload="checkLoggIn('admin');rmFD();">
+  <body onload="checkLoggIn('admin');rmFD();">
     <nav class="navbar navbar-dark navbar-expand-md bg-info">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="admin.html">hostel management</a
+      <div class="container-fluid">
+        <a class="navbar-brand" href="admin.html">hostel management</a
         ><button
           data-toggle="collapse"
           class="navbar-toggler"
@@ -33,7 +44,8 @@
               <a class="nav-link text-uppercase" href="addroom.html">Add Bed</a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link text-uppercase" href="roommanage.html">manage bed</a
+              <a class="nav-link text-uppercase" href="roommanage.html"
+                >manage bed</a
               >
             </li>
             <li class="nav-item" role="presentation">
@@ -88,13 +100,27 @@
       <br />
       <div class="form-group">
         <label for="">Electricity Bill:</label>
-        <input type="text" class="form-control border" id="el_bill" />
+        <input
+          type="text"
+          class="form-control border"
+          oninput="checkNumber(this);enbBtn(this);"
+          maxlength="50"
+          id="el_bill"
+        />
       </div>
       <div class="form-group">
         <label for="">Water Bill:</label>
-        <input type="text" class="form-control border" id="wt_bill" />
+        <input
+          type="text"
+          class="form-control border"
+          oninput="checkNumber(this);enbBtn(this);"
+          maxlength="50"
+          id="wt_bill"
+        />
       </div>
-      <button class="btn btn-info" onclick="upBill()">Update</button>
+      <button class="btn btn-info" onclick="upBill()" id="btnUPP" disabled>
+        Update
+      </button>
     </div>
     <br />
     <br />
@@ -106,5 +132,14 @@
     <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
     <script src="assets/js/Simple-Slider.js"></script>
     <script src="main.js"></script>
+    <script>
+      function enbBtn(elTxt) {
+        if (elTxt.value != "") {
+          elem("btnUPP").disabled = false;
+        }else{
+          elem("btnUPP").disabled = true;
+        }
+      }
+    </script>
   </body>
 </html>

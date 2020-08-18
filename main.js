@@ -50,6 +50,50 @@ function get_cookie(cname) {
   }
   return "";
 }
+
+let calcMonth = (bNo) => {
+  switch (bNo) {
+    case 1:
+      return "January";
+      break;
+    case 2:
+      return "February";
+      break;
+    case 3:
+      return "March";
+      break;
+    case 4:
+      return "April";
+      break;
+    case 5:
+      return "May";
+      break;
+    case 6:
+      return "June";
+      break;
+    case 7:
+      return "July";
+      break;
+    case 8:
+      return "August";
+      break;
+    case 9:
+      return "September";
+      break;
+    case 10:
+      return "October";
+      break;
+    case 11:
+      return "November";
+      break;
+    case 12:
+      return "December";
+      break;
+    default:
+      return "Unknown Number";
+  }
+};
+
 function check_cookie(name) {
   var user = get_cookie(name);
   if (user != "") {
@@ -622,6 +666,9 @@ function upBill() {
     .catch((err) => {
       console.error("There was an problem in the code : " + err);
     });
+  setTimeout(() => {
+    elem("btnUPP").disabled = true;
+  }, 200);
 }
 function addRoom() {
   if (dv("txtRoomNO") != "" && dv("txtRoomFees") != "") {
@@ -705,8 +752,6 @@ function roomManage() {
                     <td>${rooms.id}</td>
                     <td>${rooms.room}</td>
                     <td onclick="priceChange(this,'${rooms.room}')">${rooms.price}</td>
-                    <td>${rooms.el_bill}</td>
-                    <td>${rooms.wt_bill}</td>
                     <td style='user-select: all;'>${rooms.user}</td>
                     <td>
                         ${btnTemp}
@@ -949,7 +994,6 @@ function initAl() {
     })
     .then((data) => {
       if (data[0] === "NO") {
-        alert("No Rooms Available..");
         elem("txtRoomNumber").disabled = false;
         elem("txtRoomNumber").innerHTML = `
                     <option value="" hidden selected disabled >
@@ -983,7 +1027,6 @@ function initAl() {
     })
     .then((data) => {
       if (data[0] === "NO") {
-        alert("No Students Available..");
         elem("txtStudent").disabled = false;
         elem("txtStudent").innerHTML = `
                     <option value="" hidden selected disabled >
@@ -1257,11 +1300,61 @@ function stuRoomInit() {
     .then((data) => {
       if (data[0] === "NO") {
         elem("roomRelated").innerHTML = `
-                <p class='text-danger mt-5 mb-5' style='text-align:center;display: flex; justify-content:center; align-items: center;'>You are aren't allotted in a hostel room ! Request your administrator for allotting a room for you...</p>
+                <p class='text-danger mt-5 mb-5' style='text-align:center;display: flex; justify-content:center; align-items: center;'>You are aren't allotted in a hostel room ! Request your administrator for allotting a Bed for you...</p>
                 `;
       } else {
         elem("roomNo").innerHTML = `<strong>${data[0].room}</strong>`;
         elem("roomFees").innerHTML = `<strong>${data[0].price}</strong>`;
+        let ddtt = new Date();
+        elem("thismonth").innerHTML = calcMonth(parseInt(ddtt.getMonth() + 1));
+        fetch("modal/getBills.php")
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            elem("el_bill").innerHTML = `${data[0].el_bill}`;
+            elem("wt_bill").innerHTML = `${data[0].wt_bill}`;
+          })
+          .catch((err) => {
+            console.error("There was a problem in the code : " + err);
+          });
+        fetch("modal/getPNP.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            phone: get_cookie("stID"),
+          }),
+        })
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            if (data[0] == "NO") {
+              elem("pntp").classList.add("text-danger");
+              elem("pntp").innerHTML = `NOT PAID`;
+            } else {
+              let tMonth = ddtt.getMonth() + 1;
+              let tYear = ddtt.getFullYear();
+              let paid = false;
+              data.forEach((item) => {
+                if (item.p_month == tMonth && item.p_year == tYear) {
+                  paid = true;
+                }
+              });
+              if (paid) {
+                elem("pntp").classList.add("text-success");
+                elem("pntp").innerHTML = `PAID`;
+              } else {
+                elem("pntp").classList.add("text-danger");
+                elem("pntp").innerHTML = `NOT PAID`;
+              }
+            }
+          })
+          .catch((err) => {
+            console.error("There was a problem in the code : " + err);
+          });
       }
     })
     .catch((err) => {
@@ -1455,15 +1548,128 @@ function removeRequestADMIN(id) {
   }
 }
 
-/* 
+async function showPayBtn() {
+  if (elem("txtPhone").value == "" || elem("txtPhone").value == " ") {
+    return;
+  } else {
+    await fetch("modal/chkStuRm.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        phone: elem("txtPhone").value,
+      }),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        if (data[0] == "NO") {
+          console.error(
+            elem("txtPhone").value +
+              ": this is not a Registered Phone Number to any room or hostel"
+          );
+          alert("Phone Number Doesn't Exist or Not Allocated to any room..");
+        } else {
+          elem("txtName").value = data[0].name;
+          fetch("modal/getStdRC.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              phone: elem("txtPhone").value,
+            }),
+          })
+            .then((res) => {
+              return res.json();
+            })
+            .then((data) => {
+              if (data[0] == "NO") {
+                elem("stRC").innerHTML = `
+                  <p class='text-danger h5'>
+                    <strong style="text-decoration: underline;">${
+                      elem("txtName").value
+                    }</strong> has still not made any payments !
+                  </p>                  
+                `;
+              } else {
+                let mxLn = data.length - 1;
+                elem("stRC").innerHTML = `
+                <p class='text-dark h4'>
+                  <strong style="text-decoration: underline;">${
+                    elem("txtName").value
+                  }</strong> has last paid fees on : ${data[mxLn].paydate}
+                  for <span class="font-weight-bold">${calcMonth(
+                    parseInt(data[mxLn].p_month)
+                  )}-${data[mxLn].p_year}</span> 
+                </p>                  
+              `;
+              }
+            })
+            .catch((err) => {
+              console.error("There was an error in the code : " + err);
+            });
+        }
+      })
+      .catch((err) => {
+        console.error("There was an error in the code : " + err);
+      });
+  }
+  if (elem("txtName").value != 0) {
+    elem("btnAddRC").disabled = false;
+  } else {
+    return;
+  }
+}
 
-    Changes :
-
-        1. addroom.html : 2 new txtbox for electricity bill, water bill
-        2. Room's table : 2 new columns will be added 
-        3. roomdetails.html : Fees er pore 3 ta label respectively - Electricity Bill, Water Bill, Paid/Not Paid
-        4. Formal Letter sent to mail for kicking out of HOSTEL
-        5.        
-
-
-*/
+(function payBill() {
+  if (elem("paymentCtrl")) {
+    elem("paymentCtrl").addEventListener("submit", function (e) {
+      e.preventDefault();
+      let nDte = new Date();
+      fetch("modal/addBillRC.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          phone: elem("txtPhone").value,
+          name: elem("txtName").value,
+          p_m: elem("txtMonth").value,
+          p_y: elem("txtYear").value,
+        }),
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          if (data[0] == "NO") {
+            console.error("There was a problem : " + data);
+          } else {
+            alert(elem("txtName").value + " Room Payment has been Paid!");
+            let mxLn = data.length - 1;
+            elem("stRC").innerHTML = `
+            <p class='text-dark h4'>
+              <strong style="text-decoration: underline;">${
+                elem("txtName").value
+              }</strong> has last paid fees on : ${data[mxLn].paydate}
+              for <span class="font-weight-bold">${calcMonth(
+                parseInt(data[mxLn].p_month)
+              )}-${data[mxLn].p_year}</span> 
+            </p>                  
+          `;
+          }
+        })
+        .catch((err) => {
+          console.error("There was an error in the code : " + err);
+        });
+    });
+    let nDt = new Date();
+    elem("txtMonth").value = nDt.getMonth() + 1;
+    elem("txtYear").value = nDt.getFullYear();
+  } else {
+    return;
+  }
+})();
